@@ -13,7 +13,7 @@ To fix this issue try these steps:
 }
 export const { mask, unmask, setMask } = RNTextInputMask;
 const TextInputMask = forwardRef((_a, ref) => {
-    var { mask: primaryFormat, defaultValue, value, multiline, onChangeText, affineFormats, customNotations, affinityCalculationStrategy, autocomplete = true, autoskip = true, rightToLeft } = _a, rest = __rest(_a, ["mask", "defaultValue", "value", "multiline", "onChangeText", "affineFormats", "customNotations", "affinityCalculationStrategy", "autocomplete", "autoskip", "rightToLeft"]);
+    var { mask: primaryFormat, defaultValue, value, multiline, onChangeText, affineFormats, customNotations, affinityCalculationStrategy, autocomplete = true, autoskip = true, rightToLeft = false } = _a, rest = __rest(_a, ["mask", "defaultValue", "value", "multiline", "onChangeText", "affineFormats", "customNotations", "affinityCalculationStrategy", "autocomplete", "autoskip", "rightToLeft"]);
     const input = useRef(null);
     const [maskedValue, setMaskedValue] = useState();
     useEffectAsync(() => __awaiter(void 0, void 0, void 0, function* () {
@@ -21,7 +21,7 @@ const TextInputMask = forwardRef((_a, ref) => {
         if (!initialValue)
             return;
         if (primaryFormat) {
-            const masked = yield mask(primaryFormat, initialValue, false);
+            const masked = yield mask(primaryFormat, initialValue, false, rightToLeft);
             setMaskedValue(masked);
         }
         else {
@@ -32,7 +32,7 @@ const TextInputMask = forwardRef((_a, ref) => {
         if (value === maskedValue)
             return;
         if (primaryFormat && value) {
-            const masked = yield mask(primaryFormat, value, false);
+            const masked = yield mask(primaryFormat, value, false, rightToLeft);
             setMaskedValue(masked);
         }
         else {
@@ -58,7 +58,7 @@ const TextInputMask = forwardRef((_a, ref) => {
     return (<TextInput {...rest} ref={input} value={maskedValue} multiline={primaryFormat && Platform.OS === 'ios' ? false : multiline} onChangeText={(masked) => __awaiter(void 0, void 0, void 0, function* () {
             setMaskedValue(masked);
             if (primaryFormat) {
-                const unmasked = yield unmask(primaryFormat, masked, true);
+                const unmasked = yield unmask(primaryFormat, masked, true, rightToLeft);
                 onChangeText === null || onChangeText === void 0 ? void 0 : onChangeText(masked, unmasked);
             }
             else {
