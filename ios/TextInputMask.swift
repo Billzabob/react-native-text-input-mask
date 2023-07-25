@@ -44,7 +44,7 @@ class TextInputMask: NSObject, RCTBridgeModule, MaskedTextFieldDelegateListener 
                 let customNotations = (options["customNotations"] as? [[String:Any]])?.map { $0.toNotation() } ?? []
                 var affinityCalculationStrategy = AffinityCalculationStrategy.forString(rawValue: options["affinityCalculationStrategy"] as? String)
 
-                let maskedDelegate = MaskedTextFieldDelegate(primaryFormat: mask, autocomplete: autocomplete, autoskip: autoskip, rightToLeft: true, affineFormats: affineFormats, customNotations: customNotations) { (_, value, complete) in
+                let maskedDelegate = MaskedTextFieldDelegate(primaryFormat: "[000].[000]", autocomplete: autocomplete, autoskip: autoskip, rightToLeft: true, affineFormats: affineFormats, customNotations: customNotations) { (_, value, complete) in
                     // trigger onChange directly to avoid trigger a second evaluation in native code (causes issue with some input masks like [00] {/} [00]
                     let textField = textView as! UITextField
                     view.onChange?([
