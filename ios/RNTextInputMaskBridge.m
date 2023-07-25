@@ -5,12 +5,14 @@
 RCT_EXTERN_METHOD(mask:(NSString *)maskString
                   inputValue:(NSString *)inputValue
                   autocomplete:(BOOL *)autocomplete
+                  rightToLeft:(BOOL *)rightToLeft
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(unmask:(NSString *)maskString
                   inputValue:(NSString *)inputValue
                   autocomplete:(BOOL *)autocomplete
+                  rightToLeft:(BOOL *)rightToLeft
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
