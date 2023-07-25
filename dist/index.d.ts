@@ -1,6 +1,6 @@
 import React, { DependencyList } from 'react';
 import { TextInputProps } from 'react-native';
-export declare const mask: (mask: string, value: string, autocomplete: boolean) => Promise<string>, unmask: (mask: string, value: string, autocomplete: boolean) => Promise<string>, setMask: (reactNode: number, primaryFormat: string, options?: MaskOptions) => void;
+export declare const mask: (mask: string, value: string, autocomplete: boolean, rightToLeft: boolean) => Promise<string>, unmask: (mask: string, value: string, autocomplete: boolean, rightToLeft: boolean) => Promise<string>, setMask: (reactNode: number, primaryFormat: string, options?: MaskOptions) => void;
 declare const TextInputMask: React.ForwardRefExoticComponent<TextInputMaskProps & React.RefAttributes<Handles>>;
 export declare const useEffectAsync: (operation: () => Promise<void>, deps?: DependencyList) => void;
 interface MaskOptions {
