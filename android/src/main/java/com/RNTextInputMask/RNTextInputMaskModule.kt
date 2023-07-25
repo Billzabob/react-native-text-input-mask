@@ -9,6 +9,7 @@ import com.facebook.react.uimanager.UIManagerModule
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.helper.AffinityCalculationStrategy
 import com.redmadrobot.inputmask.helper.Mask
+import com.redmadrobot.inputmask.helper.RTLMask
 import com.redmadrobot.inputmask.model.CaretString
 import com.redmadrobot.inputmask.model.CaretString.CaretGravity.*
 import com.redmadrobot.inputmask.model.Notation
