@@ -22,8 +22,9 @@ class RNTextInputMaskModule(private val context: ReactApplicationContext) : Reac
     fun mask(maskString: String?,
              inputValue: String,
              autocomplete: Boolean,
+             rightToLeft: Boolean,
              promise: Promise) {
-        val mask = Mask(maskString!!)
+        val mask = maskGetOrCreate(maskString!!, rightToLeft)
         val result = mask.apply(
             CaretString(
                 inputValue,
@@ -39,8 +40,9 @@ class RNTextInputMaskModule(private val context: ReactApplicationContext) : Reac
     fun unmask(maskString: String?,
                inputValue: String,
                autocomplete: Boolean,
+               rightToLeft: Boolean,
                promise: Promise) {
-        val mask = Mask(maskString!!)
+        val mask = maskGetOrCreate(maskString!!, rightToLeft)
         val result = mask.apply(
             CaretString(
                 inputValue,
@@ -90,6 +92,13 @@ class RNTextInputMaskModule(private val context: ReactApplicationContext) : Reac
             }
         }
     }
+    
+    private fun maskGetOrCreate(format: String, rightToLeft: Boolean): Mask =
+        if (rightToLeft) {
+            RTLMask.getOrCreate(format, customNotations)
+        } else {
+            Mask.getOrCreate(format, customNotations)
+        }
 }
 
 fun ReadableMap.string(key: String): String? = this.getString(key)
