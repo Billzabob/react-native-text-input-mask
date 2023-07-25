@@ -21,13 +21,13 @@ class TextInputMask: NSObject, RCTBridgeModule, MaskedTextFieldDelegateListener 
     var listeners: [String: MaskedTextFieldDelegateListener] = [:]
 
     @objc(mask:inputValue:autocomplete:resolver:rejecter:)
-    func mask(mask: String, inputValue: String, autocomplete: Bool, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+    func mask(mask: String, inputValue: String, autocomplete: Bool, rightToLeft: Bool, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
         let output = RNMask.maskValue(text: inputValue, format: mask, autcomplete: autocomplete, rightToLeft: rightToLeft)
         resolve(output)
     }
 
     @objc(unmask:inputValue:autocomplete:resolver:rejecter:)
-    func unmask(mask: String, inputValue: String, autocomplete: Bool, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+    func unmask(mask: String, inputValue: String, autocomplete: Bool, rightToLeft: Bool, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
         let output = RNMask.unmaskValue(text: inputValue, format: mask, autocomplete: autocomplete, rightToLeft: rightToLeft)
         resolve(output)
     }
