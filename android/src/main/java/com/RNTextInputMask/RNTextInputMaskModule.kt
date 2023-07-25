@@ -95,9 +95,9 @@ class RNTextInputMaskModule(private val context: ReactApplicationContext) : Reac
     
     private fun maskGetOrCreate(format: String, rightToLeft: Boolean): Mask =
         if (rightToLeft) {
-            RTLMask.getOrCreate(format, customNotations)
+            RTLMask.getOrCreate(format, emptyList())
         } else {
-            Mask.getOrCreate(format, customNotations)
+            Mask.getOrCreate(format, emptyList())
         }
 }
 
