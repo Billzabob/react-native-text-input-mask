@@ -74,6 +74,9 @@ const TextInputMask = forwardRef<Handles, TextInputMaskProps>(({
     },
     blur: () => {
       input.current?.blur()
+    },
+    clear: () => {
+      input.current?.clear()
     }
   }))
 

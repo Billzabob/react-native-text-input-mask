@@ -53,6 +53,10 @@ const TextInputMask = forwardRef((_a, ref) => {
         blur: () => {
             var _a;
             (_a = input.current) === null || _a === void 0 ? void 0 : _a.blur();
+        },
+        clear: () => {
+            var _a;
+            (_a = input.current) === null || _a === void 0 ? void 0 : _a.clear();
         }
     }));
     return (<TextInput {...rest} ref={input} value={maskedValue} multiline={primaryFormat && Platform.OS === 'ios' ? false : multiline} onChangeText={(masked) => __awaiter(void 0, void 0, void 0, function* () {
