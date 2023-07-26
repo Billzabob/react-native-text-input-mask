@@ -39,28 +39,9 @@ const TextInputMask = forwardRef<Handles, TextInputMaskProps>(({
 }, ref) => {
   const input = useRef<TextInput>(null)
   const [ maskedValue, setMaskedValue ] = useState<string>()
-  
-  console.log('maskedValue:')
-  console.log(maskedValue)
-  console.log('\n')
-  
-  console.log('value:')
-  console.log(value)
-  console.log('\n')
 
   useEffectAsync(async () => {
     const initialValue = value ?? defaultValue
-    console.log('initialValue:')
-    console.log(initialValue)
-    console.log('\n')
-    
-    console.log('effect 1 maskedValue:')
-    console.log(maskedValue)
-    console.log('\n')
-    
-    console.log('effect 1 value:')
-    console.log(value)
-    console.log('\n')
     if (!initialValue) return
     if (primaryFormat) {
       const masked = await mask(primaryFormat, initialValue, false, rightToLeft)
@@ -71,13 +52,6 @@ const TextInputMask = forwardRef<Handles, TextInputMaskProps>(({
   }, [])
 
   useEffectAsync(async () => {
-    console.log('effect 2 maskedValue:')
-    console.log(maskedValue)
-    console.log('\n')
-    
-    console.log('effect 2 value:')
-    console.log(value)
-    console.log('\n')
     if (value === maskedValue) return
     if (primaryFormat && value) {
       const masked = await mask(primaryFormat, value, false, rightToLeft)
