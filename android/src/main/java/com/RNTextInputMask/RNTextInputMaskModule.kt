@@ -78,7 +78,6 @@ class RNTextInputMaskModule(private val context: ReactApplicationContext) : Reac
             val autocomplete = options.boolean("autocomplete")
             val autoskip = options.boolean("autoskip")
             val rightToLeft = options.boolean("rightToLeft")
-            val tailPlaceholder = options.getString("tailPlaceholder")
             context.runOnUiQueueThread {
                 OnlyChangeIfRequiredMaskedTextChangedListener.install(
                     primaryFormat = primaryFormat,
@@ -89,8 +88,7 @@ class RNTextInputMaskModule(private val context: ReactApplicationContext) : Reac
                     autocomplete = autocomplete ?: true,
                     autoskip = autoskip ?: false,
                     field = editText,
-                    rightToLeft = rightToLeft ?: false,
-                    tailPlaceholder = tailPlaceholder ?: ""
+                    rightToLeft = rightToLeft ?: false
                 )
             }
         }
