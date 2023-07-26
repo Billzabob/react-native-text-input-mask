@@ -30,6 +30,7 @@ const TextInputMask = forwardRef<Handles, TextInputMaskProps>(({
     multiline,
     onChangeText,
     affineFormats,
+    tailPlaceholder,
     customNotations,
     affinityCalculationStrategy,
     autocomplete= true,
@@ -64,7 +65,7 @@ const TextInputMask = forwardRef<Handles, TextInputMaskProps>(({
   useEffect(() => {
     const nodeId = findNodeHandle(input.current)
     if (primaryFormat && nodeId) {
-      setMask(nodeId, primaryFormat, { affineFormats, affinityCalculationStrategy, customNotations, autocomplete, autoskip, rightToLeft })
+      setMask(nodeId, primaryFormat, { affineFormats, affinityCalculationStrategy, customNotations, autocomplete, autoskip, rightToLeft, tailPlaceholder })
     }
   }, [primaryFormat])
 
@@ -127,6 +128,7 @@ interface MaskOptions {
    */
   autoskip?: boolean
   rightToLeft?: boolean
+  tailPlaceholder?: string
 }
 
 type AffinityCalculationStrategy =

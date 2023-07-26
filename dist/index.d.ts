@@ -16,6 +16,7 @@ interface MaskOptions {
      */
     autoskip?: boolean;
     rightToLeft?: boolean;
+    tailPlaceholder?: string;
 }
 type AffinityCalculationStrategy = 
 /**
