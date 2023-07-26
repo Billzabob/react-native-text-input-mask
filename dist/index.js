@@ -16,23 +16,8 @@ const TextInputMask = forwardRef((_a, ref) => {
     var { mask: primaryFormat, defaultValue, value, multiline, onChangeText, affineFormats, customNotations, affinityCalculationStrategy, autocomplete = true, autoskip = true, rightToLeft = false } = _a, rest = __rest(_a, ["mask", "defaultValue", "value", "multiline", "onChangeText", "affineFormats", "customNotations", "affinityCalculationStrategy", "autocomplete", "autoskip", "rightToLeft"]);
     const input = useRef(null);
     const [maskedValue, setMaskedValue] = useState();
-    console.log('maskedValue:');
-    console.log(maskedValue);
-    console.log('\n');
-    console.log('value:');
-    console.log(value);
-    console.log('\n');
     useEffectAsync(() => __awaiter(void 0, void 0, void 0, function* () {
         const initialValue = value !== null && value !== void 0 ? value : defaultValue;
-        console.log('initialValue:');
-        console.log(initialValue);
-        console.log('\n');
-        console.log('effect 1 maskedValue:');
-        console.log(maskedValue);
-        console.log('\n');
-        console.log('effect 1 value:');
-        console.log(value);
-        console.log('\n');
         if (!initialValue)
             return;
         if (primaryFormat) {
@@ -44,12 +29,6 @@ const TextInputMask = forwardRef((_a, ref) => {
         }
     }), []);
     useEffectAsync(() => __awaiter(void 0, void 0, void 0, function* () {
-        console.log('effect 2 maskedValue:');
-        console.log(maskedValue);
-        console.log('\n');
-        console.log('effect 2 value:');
-        console.log(value);
-        console.log('\n');
         if (value === maskedValue)
             return;
         if (primaryFormat && value) {
@@ -66,6 +45,10 @@ const TextInputMask = forwardRef((_a, ref) => {
             setMask(nodeId, primaryFormat, { affineFormats, affinityCalculationStrategy, customNotations, autocomplete, autoskip, rightToLeft });
         }
     }, [primaryFormat]);
+    useEffect(() => {
+        var _a;
+        (_a = input.current) === null || _a === void 0 ? void 0 : _a.clear();
+    }, []);
     useImperativeHandle(ref, () => ({
         focus: () => {
             var _a;
