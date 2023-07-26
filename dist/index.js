@@ -45,10 +45,6 @@ const TextInputMask = forwardRef((_a, ref) => {
             setMask(nodeId, primaryFormat, { affineFormats, affinityCalculationStrategy, customNotations, autocomplete, autoskip, rightToLeft });
         }
     }, [primaryFormat]);
-    useEffect(() => {
-        var _a;
-        (_a = input.current) === null || _a === void 0 ? void 0 : _a.clear();
-    }, []);
     useImperativeHandle(ref, () => ({
         focus: () => {
             var _a;

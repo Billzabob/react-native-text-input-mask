@@ -67,10 +67,6 @@ const TextInputMask = forwardRef<Handles, TextInputMaskProps>(({
       setMask(nodeId, primaryFormat, { affineFormats, affinityCalculationStrategy, customNotations, autocomplete, autoskip, rightToLeft })
     }
   }, [primaryFormat])
-  
-  useEffect(() => {
-    input.current?.clear()
-  }, [])
 
   useImperativeHandle(ref, () => ({
     focus: () => {
