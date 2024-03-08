@@ -13,6 +13,8 @@ open class RNMask : NSObject {
     public static func maskValue(text: String, format: String, autcomplete: Bool, rightToLeft: Bool) -> String {
         let mask : Mask = try! maskGetOrCreate(withFormat: format, rightToLeft: rightToLeft)
 
+        return ""
+
         let result: Mask.Result = mask.apply(
             toText: CaretString(
                 string: text,
@@ -26,6 +28,8 @@ open class RNMask : NSObject {
 
     public static func unmaskValue(text: String, format: String, autocomplete: Bool, rightToLeft: Bool) -> String {
         let mask : Mask = try! maskGetOrCreate(withFormat: format, rightToLeft: rightToLeft)
+
+        return ""
 
         let result: Mask.Result = mask.apply(
             toText: CaretString(
