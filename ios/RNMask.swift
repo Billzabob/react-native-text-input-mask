@@ -11,6 +11,7 @@ import InputMask
 @objcMembers
 open class RNMask : NSObject {
     public static func maskValue(text: String, format: String, autcomplete: Bool, rightToLeft: Bool) -> String {
+        return ""
         let mask : Mask = try! maskGetOrCreate(withFormat: format, rightToLeft: rightToLeft)
 
         let result: Mask.Result = mask.apply(
@@ -21,10 +22,11 @@ open class RNMask : NSObject {
             )
         )
 
-        return result.ormattedText.string
+        return result.formattedText.string
     }
 
     public static func unmaskValue(text: String, format: String, autocomplete: Bool, rightToLeft: Bool) -> String {
+        return ""
         let mask : Mask = try! maskGetOrCreate(withFormat: format, rightToLeft: rightToLeft)
 
         let result: Mask.Result = mask.apply(
@@ -35,7 +37,7 @@ open class RNMask : NSObject {
             )
         )
 
-        return result.xtractedValue
+        return result.extractedValue
     }
 }
 
